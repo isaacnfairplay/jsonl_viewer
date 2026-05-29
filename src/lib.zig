@@ -1,5 +1,7 @@
 const std = @import("std");
 
+pub const jsonl_reader = @import("jsonl_reader.zig");
+
 pub const Metadata = struct {
     size: u64,
 };
@@ -20,4 +22,8 @@ test "readMetadata returns file size" {
 
     const metadata = try readMetadata(file);
     try std.testing.expectEqual(@as(u64, 8), metadata.size);
+}
+
+test {
+    std.testing.refAllDecls(@This());
 }
